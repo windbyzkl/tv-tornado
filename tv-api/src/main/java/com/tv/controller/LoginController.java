@@ -1,5 +1,6 @@
 package com.tv.controller;
 
+import com.tv.com.tv.event.EventPublishDemo;
 import com.tv.tvpojo.Users;
 import com.tv.tvpojo.vo.UsersVO;
 import com.tv.tvservice.UserService;
@@ -13,10 +14,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.tv.service.LoginService;
 import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.Jedis;
@@ -31,11 +29,11 @@ import static java.util.UUID.randomUUID;
 @Api(value = "用户注册和登录接口" ,tags = {"用户登录和注册的Controller"})
 public class LoginController extends BaseController{
     @Autowired
-    private RedisTool redisTool;
-    @Autowired
     private LoginService loginService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private EventPublishDemo eventPublishDemo;
     private static final String USER_REDIS_KEY = "user-redis-key";
     @ApiOperation(value = "用户注册接口",notes="用户注册的接口")
     @PostMapping("/regist")
@@ -145,5 +143,9 @@ public class LoginController extends BaseController{
         user.setFaceImage(dbPath);
         userService.updateFaceImage(user);
         return JsonResult.ok(dbPath);
+    }
+    @GetMapping("/test")
+    public void test(String msg){
+        eventPublishDemo.publish(msg);
     }
 }
