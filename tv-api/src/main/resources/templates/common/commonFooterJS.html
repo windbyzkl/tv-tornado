@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<!-- 上下文对象路径 -->
+<div th:fragment="footerJs">
+<input type="hidden" id="hdnContextPath" name="hdnContextPath" value="http://localhost:8081"/>
+<input type="hidden" id="apiServer" name="apiServer" value="http://localhost:8081/"/>
+<input type="hidden" id="bgmServer" name="bgmServer" value="http://localhost:8081/"/>
+<!-- <input type="hidden" id="apiServer" name="apiServer" value="http://imoocdsp.com/imooc-video-mini-api"/> -->
+<!-- <input type="hidden" id="bgmServer" name="bgmServer" value="http://118.24.157.179/mvc"/> -->
+
+
+
+<!-- BEGIN CORE PLUGINS -->
+<script th:src="@{/global/plugins/jquery.min.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/global/plugins/bootstrap/js/bootstrap.min.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/global/plugins/js.cookie.min.js?v=3.1415926}" type="text/javascript"></script>
+
+<script th:src="@{/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js?v=3.1415926}" type="text/javascript"></script>
+
+<script th:src="@{/global/plugins/morris/morris.min.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/global/plugins/jquery-validation/js/jquery.validate.min.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/global/plugins/jquery-validation/js/additional-methods.min.js?v=3.1415926}" type="text/javascript"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script th:src="@{/global/scripts/app.js?v=3.1415926}" type="text/javascript"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script th:src="@{/global/plugins/jquery.form.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/pages/scripts/form-validation.min.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/global/plugins/bootstrap-sweetalert/sweetalert.js?v=3.1415926}" type="text/javascript"></script>
+
+<script th:src="@{/global/plugins/Guriddo_jqGrid_JS_5.2.0/js/i18n/grid.locale-cn.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/global/plugins/Guriddo_jqGrid_JS_5.2.0/js/jquery.jqGrid.min.js?v=3.1415926}" type="text/javascript"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script th:src="@{/pages/scripts/dashboard.min.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/pages/scripts/ui-sweetalert.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/pages/scripts/ui-blockui.min.js?v=3.1415926}" type="text/javascript"></script>
+
+<script th:src="@{/global/plugins/icheck/icheck.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/pages/scripts/form-icheck.js?v=3.1415926}" type="text/javascript"></script>
+
+<script th:src="@{/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/global/plugins/bootstrap-modal/js/bootstrap-modal.js?v=3.1415926}" type="text/javascript"></script>
+
+<script th:src="@{/global/plugins/file-uploader/js/vendor/jquery.ui.widget.js?v=3.1415926}"></script>
+<script th:src="@{/global/plugins/file-uploader/js/jquery.fileupload.js?v=3.1415926}"></script>
+
+
+
+<!-- END PAGE LEVEL SCRIPTS -->
+
+<!-- BEGIN 自己写的页面JS -->
+<script th:src="@{/pages/js/commonJSFunction.js?v=3.1415926}" type="text/javascript"></script>
+
+<!-- END 自己写的页面JS -->
+
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script th:src="@{/layouts/layout/scripts/layout.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/layouts/layout/scripts/demo.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/layouts/global/scripts/quick-sidebar.js?v=3.1415926}" type="text/javascript"></script>
+<script th:src="@{/layouts/global/scripts/quick-nav.js?v=3.1415926}" type="text/javascript"></script>
+<!-- END THEME LAYOUT SCRIPTS -->
+</div>
+      
+      
+      

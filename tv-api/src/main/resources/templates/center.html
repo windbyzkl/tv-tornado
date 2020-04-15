@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+	<!-- BEGIN HEAD -->
+    <head >
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>视频后台管理系统</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <div th:replace = "common/commonHeaderCSS :: headerCss"></div>
+
+		<style>
+			/* 设置jqgrid列中文字内容垂直居中 jqgrid 单元格自动换行 */
+			.ui-jqgrid tr.jqgrow td {
+				vertical-align:middle;
+			 	white-space: normal !important; 
+			 	height: auto; 
+			 	word-break: break-all; 
+			}
+		</style>
+		
+    </head>
+    <!-- END HEAD -->
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+        <div class="page-wrapper">
+            
+            <!-- 引入header页面 start -->
+			<div th:replace="common/header :: header"  ></div>
+           	<!-- 引入header页面  end -->
+            
+            <!-- BEGIN HEADER & CONTENT DIVIDER -->
+            <div class="clearfix"> </div>
+            <!-- END HEADER & CONTENT DIVIDER -->
+            	
+            	<div class="page-container">
+            	
+            	<!-- 菜单 start -->
+					<div th:replace="common/menu :: menu"  ></div>
+            	<!-- 菜单 end -->
+            	
+                <!-- BEGIN CONTENT -->
+				<div class="page-content-wrapper">
+				    <!-- BEGIN CONTENT BODY -->    
+				    <div class="page-content">
+				    
+				    	<div class="page-content-body">
+				    	<!--
+					        <jsp:include page="imooc.jsp"></jsp:include>
+					        -->
+				        </div>
+				        
+				    </div>
+				    <!-- END CONTENT BODY -->
+				</div>
+				<!-- END CONTENT -->
+                
+            </div>
+            <!-- END CONTAINER -->
+        </div>
+            
+            <!-- 引入footer页面 start -->
+           	<div th:replace="common/footer :: footer"  ></div>
+           	<!-- 引入footer页面  end -->
+            
+        
+        <!-- 公用尾部JS start -->
+ 		<div th:replace="common/commonFooterJs :: footerJs"  ></div>
+        <!-- 公用尾部JS end -->
+	
+</body>
+
+</html>

@@ -6,7 +6,6 @@ import com.tv.tvpojo.vo.UsersVO;
 import com.tv.tvservice.UserService;
 import com.tv.util.JsonResult;
 import com.tv.util.MD5Utils;
-import com.tv.util.RedisTool;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -23,7 +22,6 @@ import redis.clients.jedis.params.SetParams;
 import java.io.*;
 import java.util.UUID;
 
-import static java.util.UUID.randomUUID;
 
 @RestController
 @Api(value = "用户注册和登录接口" ,tags = {"用户登录和注册的Controller"})
@@ -78,21 +76,7 @@ public class LoginController extends BaseController{
          return JsonResult.ok(usersVO);
     }
 
-    @ApiOperation(value = "查询用户接口",notes = "查询用户接口")
-    @ApiImplicitParam(name="userId", value="用户id", required=true,
-            dataType="String", paramType="query")
-    @PostMapping("/queryUser")
-    public JsonResult queryUser(String userId) throws Exception {
-        if(StringUtils.isBlank(userId))
-            return JsonResult.errorMsg("用户Id为空.");
-        Users user = userService.queryUserByUserId(userId);
-        UsersVO usersVO = new UsersVO();
-        Jedis jedis = redisTool.getJedisResource();
-        BeanUtils.copyProperties(user,usersVO);
-        usersVO.setUserToken(jedis.get(super.USER_REDIS_KEY+":"+usersVO.getId()));
-        redisTool.realse(jedis);
-        return JsonResult.ok(usersVO);
-    }
+
 
     @PostMapping("/loginOut")
     @ApiOperation(value = "用户注销接口",notes = "用户注销接口")

@@ -123,4 +123,42 @@ public class VideoController extends BaseController{
     public JsonResult queryHotList(){
         return JsonResult.ok(searchRecordsService.queryHotWords());
     }
+
+    @PostMapping("/userLike")
+    @ApiOperation(value = "视频点赞接口",notes = "视频点赞接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId",value = "用户id",dataType = "String",paramType = "query",required = true),
+            @ApiImplicitParam(name = "videoId",value = "视频id",dataType = "String",paramType = "query",required = true),
+            @ApiImplicitParam(name = "publishUserId",value = "发布者用户Id",dataType = "String",paramType = "query",required = true),
+    })
+    public JsonResult userLike(String userId,String videoId,String publishUserId){
+        videoService.userLikeVideo(userId,videoId,publishUserId);
+        return JsonResult.ok();
+    }
+
+    @PostMapping("/userUnLike")
+    @ApiOperation(value =  "视频取消点赞接口",notes = "视频取消点赞接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId",value = "用户id",dataType = "String",paramType = "query",required = true),
+            @ApiImplicitParam(name = "videoId",value = "视频id",dataType = "String",paramType = "query",required = true),
+            @ApiImplicitParam(name = "publishUserId",value = "发布者用户Id",dataType = "String",paramType = "query",required = true),
+    })
+    public JsonResult userUnLike(String userId,String videoId,String publishUserId){
+        videoService.userUnLikeVideo(userId,videoId,publishUserId);
+        return JsonResult.ok();
+    }
+
+    @PostMapping("/queryMyLikeVideos")
+    public JsonResult queryMyLikeVideos(String userId,Integer page,Integer pageSize){
+        if(StringUtils.isBlank(userId)){
+            return JsonResult.errorMsg("参数错误");
+        }
+        if(page == null){
+            page = 1;
+        }
+        if(pageSize == null){
+            pageSize = super.PAGE_SIZE;
+        }
+        return JsonResult.ok(videoService.queryMyLikeVideos(userId,page,pageSize));
+    }
 }

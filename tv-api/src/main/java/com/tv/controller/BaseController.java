@@ -22,5 +22,6 @@ public class BaseController {
     protected  String BGM_PATH;
     protected final String USER_REDIS_KEY = "user-redis-key";
     protected final Integer PAGE_SIZE = 5;
+    protected final String BGM_TEMP_PATH = "e:/workspace/resource/temp/";
 
 }
